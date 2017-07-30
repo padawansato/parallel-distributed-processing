@@ -50,6 +50,7 @@ func merge(values *[]int, start int, stop int) {
 
 func merge_sort(values *[]int, start int, stop int, id int) {
 	// id が( 2^~ まで）マージソートする
+  // fmt.Println("id", id) // 順番がわかるよー
 	if id < 4 {
 		// 分割・再帰
 		var wg sync.WaitGroup
@@ -65,6 +66,7 @@ func merge_sort(values *[]int, start int, stop int, id int) {
 			}()
 			wg.Wait()
 
+		  // fmt.Println("merge") // マージするよー
 			merge(values, start , stop)
 		}
 	} else {

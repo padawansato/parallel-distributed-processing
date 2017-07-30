@@ -48,6 +48,7 @@ func merge(values *[]int, start int, stop int) {
 
 func merge_sort(values *[]int, start int, stop int, id int) {
 	// ふたつのスライスをそれぞれ再帰的にソートする
+	// fmt.Println("id", id) // 順番がわかるよー
 	if id < 4 {
 		var wg sync.WaitGroup
 		if (start < stop) {
@@ -55,6 +56,7 @@ func merge_sort(values *[]int, start int, stop int, id int) {
 			merge_sort(values, start , (start+stop)/2, id+1)
 			merge_sort(values, (start+stop)/2+1 , stop, id+1)
 
+	// fmt.Println("merge") // マージするよー
 			merge(values, start , stop)
 		}
 	} else {
