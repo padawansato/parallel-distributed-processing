@@ -39,12 +39,12 @@ pmergesort_pointer_bubble.go
 ## mergesort.go
 　元にしたマージソートプログラム. ソート部分にはbuildin関数sort.Int()を用いている. 
 
-図1. mergesort.goイメージ
+
 ## mergesort_pointer.go
 　mergesort.goの並列化を試みたが実行速度に向上が見られなかったため, golangは変数宣言によるオーバーヘッドが大きくなるという理由により, ポインタを追加した. 
 
 
-　図2. mergedort_pointer.go
+　
 
 
 ## pmergesort_pointer_buildin.go
@@ -60,19 +60,19 @@ pmergesort_pointer_bubble.go
 ```
 
 
-図3. pmergesort_pointer_buildin.goイメージ
+
 
 
 ## pmergesort_pointer_bubble.go
 　mergesort_pointer.goを並列化させ, ソート部分のみバブルソートに変更してみた. 
 
 
-図4. pmerge_pointer_bubble.goイメージ
+
 
 
 # 実行結果
 
-図5. 速度比較
+
 
 表1.実行速度の順位
 
@@ -95,7 +95,7 @@ mergesort_pointer_bubble.go
 実行速度は上記の順で速かった. 
 
 
-図6. 逐次と並列化プログラムの速度比較
+
 
 　逐次と並列化プログラムの速度を比較すると, 並列化プログラムの方が速くなっていることが分かる.
 
@@ -149,7 +149,7 @@ CPUコア数は4であると確認できる．
 　pmergesort_pointer_bubble.goは，バブルソートを並列で実行しているため，
 　bubbleソートは最悪計算量O(n^2)のアルゴリズムである．扱う数が増えれば増えるほど，実行時間は指数関数的に増大する．
 
-図7. バブルソートの様子
+
 
 
 # 実行環境メモリ 
