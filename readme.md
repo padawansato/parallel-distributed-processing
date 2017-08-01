@@ -19,18 +19,6 @@ shellscript以下のソースコードは，時間を計測するために，出
 ```
 
 
-# レポート
-並列分散処理d班レポート
-go言語を用いた並列化の実装
-
-e155719：竹松涼
-e155723：永田有海
-e155735：喜友名優花
-e155736：高嶺潮
-e155755：佐藤匠
-e155763：丸山元輝
-
-
 # 目的
 　go言語による並列化の実装及び考察を行う.
 
@@ -40,40 +28,42 @@ e155763：丸山元輝
 # 実験内容
 　今回用意したプログラムは以下の4つである.
 
-逐次プログラム
-並列化プログラム
+## 逐次プログラム
 mergesort.go
-pmergesort_pointer_buildin.go
 mergesort_pointer.go
+## 並列化プログラム
+pmergesort_pointer_buildin.go
 pmergesort_pointer_bubble.go
 
 # プログラムの概要
-・mergesort.go
+## mergesort.go
 　元にしたマージソートプログラム. ソート部分にはbuildin関数sort.Int()を用いている. 
 
 図1. mergesort.goイメージ
-・mergesort_pointer.go
+## mergesort_pointer.go
 　mergesort.goの並列化を試みたが実行速度に向上が見られなかったため, golangは変数宣言によるオーバーヘッドが大きくなるという理由により, ポインタを追加した. 
 
 
 　図2. mergedort_pointer.go
 
 
-・pmergesort_pointer_buildin.go
+## pmergesort_pointer_buildin.go
 　mergesort_pointer.goを並列化させたプログラム. golangは処理の完了を取るためのsyncパッケージをimportし, goroutineを使用することで並列化が可能である. 
+
+```
 　----goroutine----------------------
 　　　go func(){
 //並列化させたい処理
 }
 　--------------------------------------
 当プログラムはmerge_sort()でgoroutineを使用している. 
-
+```
 
 
 図3. pmergesort_pointer_buildin.goイメージ
 
 
-・pmergesort_pointer_bubble.go
+## pmergesort_pointer_bubble.go
 　mergesort_pointer.goを並列化させ, ソート部分のみバブルソートに変更してみた. 
 
 
@@ -162,54 +152,11 @@ CPUコア数は4であると確認できる．
 図7. バブルソートの様子
 
 
-# 実行環境
+# 実行環境メモリ 
 メモリ 8 GB 1600 MHz DDR3
 CPU 2.6 GHz Intel Core i5
 MacBook Pro (Retina, 13-inch, Mid 2014)
 
-
-# 参考文献
-1.マルチコアCPU上の並列化手法、その並列性能と問題点https://www.softek.co.jp/SPG/Pgi/TIPS/public/general/multicore-para.html
-
-
-#リポジトリ
-https://github.com/psato/parallel-distributed-processing
-
-
-
-
-
-
-
-
-
-
-
-
-# 担当箇所
-e155719：竹松涼
-・逐次プログラム・並列化プログラム作成(プログラム計20個)
-・プログラム実行時のデッドロック原因解明、改善
-・発表
-
-e155723：永田有海
-・プログラムイメージ図作成
-・レポートのプログラム概要担当
-
-e155735：喜友名優花
-・スライドの作成
-・レポートの表を作成
-
-e155736：高嶺潮
-・レポート, スライドの体裁最終確認
-
-e155755：佐藤匠
-・グラフ出力スクリプト作成
-・CPUコア数の確認のスクリプト作成
-・レポートの出力結果の考察
-
-e155763：丸山元輝
-・並列化技術についての調査
 
 
 
